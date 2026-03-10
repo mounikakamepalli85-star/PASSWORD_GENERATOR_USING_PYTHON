@@ -3,9 +3,6 @@ from tkinter import messagebox
 import random
 import string
 
-# =========================
-# FUNCTIONS
-# =========================
 
 def update_length_label(value):
     length_label.config(text=value)
@@ -31,7 +28,6 @@ def generate_password():
     password_entry.delete(0, tk.END)
     password_entry.insert(0, password)
 
-    # 🔥 Auto Reset After Generate
     upper_var.set(0)
     lower_var.set(0)
     number_var.set(0)
@@ -52,9 +48,6 @@ root.geometry("400x600")
 root.configure(bg="#d79a64")
 root.resizable(False, False)
 
-# =========================
-# TITLE
-# =========================
 
 title = tk.Label(root,
                  text="Password Generator",
@@ -62,9 +55,7 @@ title = tk.Label(root,
                  bg="#d79a64")
 title.pack(pady=20)
 
-# =========================
-# PASSWORD ENTRY
-# =========================
+
 
 password_entry = tk.Entry(root,
                           font=("Arial", 14),
@@ -72,9 +63,7 @@ password_entry = tk.Entry(root,
                           justify="center")
 password_entry.pack(pady=15)
 
-# =========================
-# LENGTH SECTION
-# =========================
+
 
 tk.Label(root,
          text="Range Of Characters",
@@ -97,9 +86,6 @@ length_slider = tk.Scale(root,
 length_slider.set(12)
 length_slider.pack(pady=5)
 
-# =========================
-# CHECKBOX SECTION (ALL UNCHECKED BY DEFAULT)
-# =========================
 
 upper_var = tk.IntVar(value=0)
 lower_var = tk.IntVar(value=0)
@@ -122,9 +108,7 @@ tk.Checkbutton(root, text="Symbols",
                variable=symbol_var,
                bg="#d79a64").pack(anchor="w", padx=100)
 
-# =========================
-# BUTTONS
-# =========================
+
 
 generate_btn = tk.Button(root,
                          text="Generate Password",
@@ -139,10 +123,6 @@ clear_btn = tk.Button(root,
                       bg="#f5d0c5",
                       command=clear_password)
 clear_btn.pack()
-
-# =========================
-# FOOTER
-# =========================
 
 footer_frame = tk.Frame(root, bg="#d79a64")
 footer_frame.pack(side="bottom", pady=20)
@@ -165,3 +145,4 @@ tk.Label(footer_frame,
          font=("Arial", 10, "bold")).pack(side="left")
 
 root.mainloop()
+
